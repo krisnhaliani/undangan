@@ -650,7 +650,7 @@ section > *{position:relative;z-index:1;}
         </a>
       </div>
       <p class="note reveal" data-delay="3">
-        Konfirmasi kehadiran paling lambat pada <strong data-bind="rsvpDeadline">[BATAS WAKTU RSVP]</strong>.
+        Konfirmasi kehadiran paling lambat pada <strong data-bind="rsvpDeadline">20 September 2026</strong>.
       </p>
       <div class="reveal" data-delay="3">
         <a class="btn btn--ghost" id="rsvpAltBtn" href="#" target="_blank" rel="noopener noreferrer">Buka Form RSVP</a>
@@ -772,15 +772,15 @@ const weddingData = {
   // TODO: ganti dengan link Google Form RSVP Anda
   rsvpUrl:        "",
   // TODO: ganti dengan batas waktu konfirmasi, mis. "20 September 2026"
-  rsvpDeadline:   "[BATAS WAKTU RSVP]",
+  rsvpDeadline:   "20 September 2026",
   // TODO: ganti dengan link form ucapan (boleh sama dengan RSVP)
   wishesUrl:      "",
 
   /* --- Embed Google Form (opsional) ---
      Set true untuk menampilkan form langsung di halaman.
      rsvpEmbedUrl = link form + "?embedded=true"                       */
-  embedRsvpForm:  false,
-  rsvpEmbedUrl:   "",
+  embedRsvpForm:  true,
+  rsvpEmbedUrl:   "<https://docs.google.com/forms/d/e/1FAIpQLSfnzL8mApv3ScazHqTm73SAQPuHCG-lH5xqorNp4UL4t2x6wA/viewform?embedded=true",
 
   /* --- Media --- */
   musicFile:      "music.mp3",
