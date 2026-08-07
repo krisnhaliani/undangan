@@ -494,13 +494,13 @@ section > *{position:relative;z-index:1;}
       <h2 class="hero__names reveal" data-delay="1">
         <span data-bind="brideNickname">Ria</span>
         <span>&amp;</span>
-        <span data-bind="groomNickname">Ardy</span>
+        <span data-bind="groomNickname">Ardyana</span>
       </h2>
       <p class="hero__date reveal" data-delay="2" data-bind="eventDateText">Kamis, 1 Oktober 2026</p>
       <hr class="rule reveal" data-delay="2" />
       <p class="lead reveal" data-delay="3">
-        Atas asung kerta wara nugraha Ida Sang Hyang Widhi Wasa, kami mengundang
-        Bapak/Ibu/Saudara/i untuk menghadiri upacara Pawiwahan kami serta memberikan doa restu.
+        Atas asung kerta wara nugraha Ida Sang Hyang Widhi Wasa, dengan penuh sukacita kami mengundang Bapak/Ibu/Saudara/i 
+        untuk hadir dan memberikan doa restu dalam upacara Pawiwahan kami.
       </p>
     </div>
   </section>
@@ -539,8 +539,8 @@ section > *{position:relative;z-index:1;}
       <!-- MEMPELAI WANITA -->
       <article class="person reveal">
         <div class="person__photo">
-          <!-- GANTI FOTO MEMPELAI WANITA: assets/img/bride.jpg (persegi, min. 600x600 px) -->
-          <img id="bridePhoto" src="assets/img/bride.jpg" alt="Foto mempelai wanita" loading="lazy" width="600" height="600" />
+          <!-- GANTI FOTO MEMPELAI WANITA: bride.jpg (persegi, min. 600x600 px) -->
+          <img id="bridePhoto" src="bride.jpg" alt="Foto mempelai wanita" loading="lazy" width="600" height="600" />
         </div>
         <h3 class="person__name" data-bind="brideName">Krisnhaliani Wetaini</h3>
         <p class="person__nick" data-bind="brideNicknameQuoted">Ria</p>
@@ -554,11 +554,11 @@ section > *{position:relative;z-index:1;}
       <!-- MEMPELAI PRIA -->
       <article class="person reveal" data-delay="2">
         <div class="person__photo">
-          <!-- GANTI FOTO MEMPELAI PRIA: assets/img/groom.jpg (persegi, min. 600x600 px) -->
-          <img id="groomPhoto" src="assets/img/groom.jpg" alt="Foto mempelai pria" loading="lazy" width="600" height="600" />
+          <!-- GANTI FOTO MEMPELAI PRIA: groom.jpg (persegi, min. 600x600 px) -->
+          <img id="groomPhoto" src="groom.jpg" alt="Foto mempelai pria" loading="lazy" width="600" height="600" />
         </div>
         <h3 class="person__name" data-bind="groomName">Wayan Ardyana Prastara</h3>
-        <p class="person__nick" data-bind="groomNicknameQuoted">Ardy</p>
+        <p class="person__nick" data-bind="groomNicknameQuoted">Ardyana</p>
         <p class="person__parents" data-bind-html="groomParents"></p>
       </article>
     </div>
@@ -748,14 +748,13 @@ const weddingData = {
   brideName:      "Krisnhaliani Wetarini",
   brideNickname:  "Ria",
   brideParents:   "Putri dari Bapak Alm. I Wayan Eka Sunantara<br>dan Ibu Nur Lela",
-  bridePhoto:     "assets/img/bride.jpg",
+  bridePhoto:     "bride.jpg",
 
   /* --- Mempelai pria --- */
   groomName:      "Wayan Ardyana Prastara",
   groomNickname:  "Ardy",
-  // TODO: isi nama orang tua mempelai pria
   groomParents:   "Putra dari Bapak dr. I Wayan Sudiana, M.Kes<br>dan Ibu Ir. Ni Luh Putu Santi Armaheni",
-  groomPhoto:     "assets/img/groom.jpg",
+  groomPhoto:     "groom.jpg",
 
   /* --- Acara --- */
   eventName:      "Resepsi Pawiwahan",
