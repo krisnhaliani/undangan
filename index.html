@@ -90,16 +90,24 @@ body{
   max-width:var(--shell);
   margin:0 auto;
   background:
-    radial-gradient(120% 60% at 50% 0%, #FFFDF8 0%, transparent 60%),
-    linear-gradient(180deg, var(--ivory) 0%, #F7F1E6 55%, var(--ivory) 100%);
+    radial-gradient(140% 70% at 50% 0%, rgba(255,255,255,.95) 0%, rgba(255,255,255,0) 58%),
+    radial-gradient(120% 90% at 50% 100%, rgba(198,161,91,.08) 0%, rgba(198,161,91,0) 65%),
+    linear-gradient(180deg, #FCF8F1 0%, #F4EBDD 52%, #FBF7F0 100%);
   box-shadow:0 0 60px rgba(0,0,0,.35);
   position:relative;
   overflow:hidden;
 }
-/* tekstur kertas sangat halus */
+
+/* tekstur + motif klasik samar */
 .shell::before{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.28;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23C6A15B' stroke-opacity='.18' stroke-width='1'%3E%3Cpath d='M90 28c-8 15-14 24-28 31 14 7 20 16 28 31 8-15 14-24 28-31-14-7-20-16-28-31z'/%3E%3Cpath d='M45 90c18 0 28-8 45-18 17 10 27 18 45 18'/%3E%3Cpath d='M45 90c18 0 28 8 45 18 17-10 27-18 45-18'/%3E%3Ccircle cx='90' cy='90' r='6' fill='%23C6A15B' fill-opacity='.12' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:180px 180px;
   mix-blend-mode:multiply;
 }
 
@@ -534,9 +542,9 @@ section > *{position:relative;z-index:1;}
     <svg class="orn orn--small" aria-hidden="true"><use href="#orn-lotus"/></svg>
     <p class="cover__label">The Wedding of</p>
     <h1 class="cover__names">
-      <span data-bind="brideNickname">Ria</span>
-      <span class="cover__amp">&amp;</span>
       <span data-bind="groomNickname">Ardyana</span>
+      <span class="cover__amp">&amp;</span>
+      <span data-bind="brideNickname">Ria</span>
     </h1>
     <p class="cover__date" data-bind="eventDateText">Kamis, 1 Oktober 2026</p>
     <div class="cover__guest">
@@ -564,9 +572,9 @@ section > *{position:relative;z-index:1;}
     <div class="hero__caption stack">
       <svg class="orn orn--small reveal" aria-hidden="true"><use href="#orn-lotus"/></svg>
       <h2 class="hero__names reveal" data-delay="1">
-        <span data-bind="brideNickname">Ria</span>
-        <span>&amp;</span>
         <span data-bind="groomNickname">Ardyana</span>
+        <span>&amp;</span>
+        <span data-bind="brideNickname">Ria</span>
       </h2>
       <p class="hero__date reveal" data-delay="2" data-bind="eventDateText">Kamis, 1 Oktober 2026</p>
       <hr class="rule reveal" data-delay="2" />
@@ -608,21 +616,6 @@ section > *{position:relative;z-index:1;}
     </div>
 
     <div class="couple">
-      <!-- MEMPELAI WANITA -->
-      <article class="person reveal">
-        <div class="person__photo">
-          <!-- GANTI FOTO MEMPELAI WANITA: bride.jpg (persegi, min. 600x600 px) -->
-          <img id="bridePhoto" src="bride.jpg" alt="Foto mempelai wanita" loading="lazy" width="600" height="600" />
-        </div>
-        <h3 class="person__name" data-bind="brideName">Krisnhaliani Wetarini</h3>
-        <p class="person__nick" data-bind="brideNicknameQuoted">Ria</p>
-        <p class="person__parents" data-bind-html="brideParents"></p>
-      </article>
-
-      <div class="couple__amp reveal" data-delay="1" aria-hidden="true">
-        <i></i><span>&amp;</span><i></i>
-      </div>
-
       <!-- MEMPELAI PRIA -->
       <article class="person reveal" data-delay="2">
         <div class="person__photo">
@@ -633,7 +626,21 @@ section > *{position:relative;z-index:1;}
         <p class="person__nick" data-bind="groomNicknameQuoted">Ardyana</p>
         <p class="person__parents" data-bind-html="groomParents"></p>
       </article>
-    </div>
+
+      <div class="couple__amp reveal" data-delay="1" aria-hidden="true">
+        <i></i><span>&amp;</span><i></i>
+      </div>
+    
+      <!-- MEMPELAI WANITA -->
+      <article class="person reveal">
+        <div class="person__photo">
+          <!-- GANTI FOTO MEMPELAI WANITA: bride.jpg (persegi, min. 600x600 px) -->
+          <img id="bridePhoto" src="bride.jpg" alt="Foto mempelai wanita" loading="lazy" width="600" height="600" />
+        </div>
+        <h3 class="person__name" data-bind="brideName">Krisnhaliani Wetarini</h3>
+        <p class="person__nick" data-bind="brideNicknameQuoted">Ria</p>
+        <p class="person__parents" data-bind-html="brideParents"></p>
+      </article>
   </section>
 
   <!-- ---------- 4. DETAIL ACARA ---------- -->
@@ -781,26 +788,7 @@ section > *{position:relative;z-index:1;}
   </div>
 </section>
 
-  <!-- ---------- 8. UCAPAN & DOA ---------- -->
-  <section id="ucapan" aria-labelledby="ucapan-title">
-    <svg class="corner corner--tr" aria-hidden="true"><use href="#orn-corner"/></svg>
-    <svg class="corner corner--bl" aria-hidden="true"><use href="#orn-corner"/></svg>
-    <div class="center stack">
-      <p class="eyebrow reveal">Wishes</p>
-      <h2 class="section-title reveal" data-delay="1" id="ucapan-title">Ucapan &amp; Doa</h2>
-      <p class="lead reveal" data-delay="2">
-        Doa dan restu dari Bapak/Ibu/Saudara/i adalah hadiah terindah bagi kami berdua.
-      </p>
-      <div class="btn-row reveal" data-delay="2" style="margin-top:22px">
-        <a class="btn btn--solid" id="wishesBtn" href="#" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Kirim Ucapan dan Doa
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- 9. PENUTUP ---------- -->
+  <!-- ---------- 8. PENUTUP ---------- -->
   <section class="closing" aria-label="Penutup">
     <svg class="orn orn--divider reveal" aria-hidden="true"><use href="#orn-divider"/></svg>
     <p class="closing__text reveal" data-delay="1">
@@ -809,16 +797,16 @@ section > *{position:relative;z-index:1;}
     </p>
     <p class="eyebrow reveal" data-delay="2" style="margin-top:26px">Om Shanti Shanti Shanti Om</p>
     <h2 class="closing__names reveal" data-delay="2">
-      <span data-bind="brideNickname">Ria</span>
-      <span>&amp;</span>
       <span data-bind="groomNickname">Ardyana</span>
+      <span>&amp;</span>
+      <span data-bind="brideNickname">Ria</span>
     </h2>
     <p class="closing__family reveal" data-delay="3" data-bind-html="familiesLine"></p>
     <svg class="orn orn--divider reveal" data-delay="3" aria-hidden="true" style="margin-top:26px"><use href="#orn-divider"/></svg>
   </section>
 
   <footer class="footer">
-    Made with love for <strong><span data-bind="brideNickname">Ria</span> &amp; <span data-bind="groomNickname">Ardyana</span></strong>
+    Made with love for <strong><span data-bind="groomNickname">Ardyana</span> &amp; <span data-bind="brideNickname">Ria</span></strong>
   </footer>
 </main>
 
@@ -976,7 +964,7 @@ rsvpEmbedUrl:   "",
       if (html[key] !== undefined) el.innerHTML = html[key];
     });
 
-    document.title = "Pawiwahan " + weddingData.brideNickname + " & " + weddingData.groomNickname +
+    document.title = "Pawiwahan " + weddingData.groomNickname + " & " + weddingData.brideNickname +
                      " — " + weddingData.eventDateText;
   }
 
