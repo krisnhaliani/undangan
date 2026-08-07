@@ -8,18 +8,30 @@
 <!-- ============================================================
      SEO & SOCIAL SHARING  (ganti URL & gambar sesuai domain Anda)
      ============================================================ -->
-<title>Pawiwahan Ardyana &amp; Ria — 1 Oktober 2026</title>
-<meta name="description" content="Undangan Pawiwahan Krisnhaliani Wetarini & Wayan Ardyana Prastara. Kamis, 1 Oktober 2026 di Griya Taksu, Gianyar, Bali." />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://contoh-domain-anda.com/" />
+<title>Pawiwahan Ardyana & Ria — 1 Oktober 2026</title>
+
+<meta name="description"
+content="Undangan Pawiwahan Ardyana & Ria. Kamis, 1 Oktober 2026 di Griya Taksu, Gianyar, Bali." />
+
+<link rel="canonical"
+href="https://krishnaliani.github.io/undangan/" />
 
 <meta property="og:type" content="website" />
+
 <meta property="og:locale" content="id_ID" />
-<meta property="og:title" content="Pawiwahan Ardyana & Ria — 1 Oktober 2026" />
-<meta property="og:description" content="Atas asung kerta wara nugraha Ida Sang Hyang Widhi Wasa, dengan penuh sukacita kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu dalam upacara Pawiwahan kami." />
-<meta property="og:url" content="https://contoh-domain-anda.com/" />
-<!-- GANTI: gambar preview WhatsApp/Facebook, ukuran ideal 1200x630 px -->
-<meta property="og:image" content="assets/img/share-cover.jpg" />
+
+<meta property="og:title"
+content="Pawiwahan Ardyana & Ria — 1 Oktober 2026" />
+
+<meta property="og:description"
+content="Dengan penuh sukacita, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada Pawiwahan Ardyana & Ria." />
+
+<meta property="og:url"
+content="https://krishnaliani.github.io/undangan/" />
+
+<meta property="og:image"
+content="https://krishnaliani.github.io/undangan/share-cover.jpg" />
+
 <meta name="twitter:card" content="summary_large_image" />
 
 <!-- FAVICON placeholder (SVG inline, ganti dengan favicon.ico milik Anda bila ada) -->
@@ -119,7 +131,7 @@ body{
   position:absolute;
   inset:0;
   pointer-events:none;
-  opacity:.55;
+  opacity:.22;
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23C6A15B' stroke-opacity='.18' stroke-width='1'%3E%3Cpath d='M90 28c-8 15-14 24-28 31 14 7 20 16 28 31 8-15 14-24 28-31-14-7-20-16-28-31z'/%3E%3Cpath d='M45 90c18 0 28-8 45-18 17 10 27 18 45 18'/%3E%3Cpath d='M45 90c18 0 28 8 45 18 17-10 27-18 45-18'/%3E%3Ccircle cx='90' cy='90' r='6' fill='%23C6A15B' fill-opacity='.12' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
   background-size:180px 180px;
@@ -791,7 +803,24 @@ section > *{position:relative;z-index:1;}
         Konfirmasi Kehadiran
       </button>
 
-      <p class="rsvp-status" id="rsvpStatus"></p>
+      <div class="rsvp-success" id="rsvpSuccess" hidden>
+  <svg class="orn orn--small" aria-hidden="true">
+    <use href="#orn-lotus"/>
+  </svg>
+
+  <p class="rsvp-success__label">Terima Kasih</p>
+
+  <h3 class="rsvp-success__name" id="rsvpSuccessName"></h3>
+
+  <p class="rsvp-success__message" id="rsvpSuccessMessage"></p>
+
+  <p class="rsvp-success__date">
+    Ardyana &amp; Ria<br>
+    1 Oktober 2026
+  </p>
+</div>
+
+<p class="rsvp-status" id="rsvpStatus"></p>
 
     </form>
 
@@ -1003,15 +1032,34 @@ rsvpEmbedUrl:   "",
   /* ================================================================
      D. NAMA TAMU DARI URL  ->  index.html?to=Nama+Tamu
      ================================================================ */
-  function bindGuest() {
-    let guest = "";
-    try {
-      const params = new URLSearchParams(window.location.search);
-      guest = params.get("to") || params.get("kepada") || params.get("guest") || "";
-    } catch (e) { guest = ""; }
-    guest = guest.replace(/\+/g, " ").trim();
-    $("#guestName").textContent = guest || weddingData.guestFallback;
+function bindGuest() {
+  let guest = "";
+
+  try {
+    const params = new URLSearchParams(window.location.search);
+    guest =
+      params.get("to") ||
+      params.get("kepada") ||
+      params.get("guest") ||
+      "";
+  } catch (e) {
+    guest = "";
   }
+
+  guest = guest.replace(/\+/g, " ").trim();
+
+  const finalGuest = guest || weddingData.guestFallback;
+
+  // Nama di cover
+  $("#guestName").textContent = finalGuest;
+
+  // Otomatis isi nama di RSVP
+  const rsvpName = $("#rsvpName");
+
+  if (rsvpName && guest) {
+    rsvpName.value = guest;
+  }
+}
 
   /* ================================================================
      E. TOMBOL: MAPS, KALENDER, RSVP, UCAPAN
