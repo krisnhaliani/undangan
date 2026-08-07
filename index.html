@@ -464,11 +464,11 @@ section > *{position:relative;z-index:1;}
     <h1 class="cover__names">
       <span data-bind="brideNickname">Ria</span>
       <span class="cover__amp">&amp;</span>
-      <span data-bind="groomNickname">Ardy</span>
+      <span data-bind="groomNickname">Ardyana</span>
     </h1>
     <p class="cover__date" data-bind="eventDateText">Kamis, 1 Oktober 2026</p>
     <div class="cover__guest">
-      <small>Kepada Yth. Bapak/Ibu/Saudara/i</small>
+      <small>Yth. Bapak/Ibu/Saudara/i</small>
       <strong id="guestName">Bapak/Ibu/Saudara/i</strong>
     </div>
     <button class="btn btn--gold" id="openBtn" type="button">
@@ -486,8 +486,8 @@ section > *{position:relative;z-index:1;}
   <!-- ---------- 1. HERO ---------- -->
   <section class="hero" id="hero" aria-label="Pembuka">
     <figure class="hero__figure">
-      <!-- GANTI FOTO UTAMA: assets/img/hero.jpg (disarankan 1200x1500 px) -->
-      <img id="heroPhoto" src="assets/img/hero.jpg" alt="Foto pasangan mempelai" width="1200" height="1500" />
+      <!-- GANTI FOTO UTAMA: hero.jpg (disarankan 1200x1500 px) -->
+      <img id="heroPhoto" src="hero.jpg" alt="Foto pasangan mempelai" width="1200" height="1500" />
     </figure>
     <div class="hero__caption stack">
       <svg class="orn orn--small reveal" aria-hidden="true"><use href="#orn-lotus"/></svg>
@@ -695,14 +695,14 @@ section > *{position:relative;z-index:1;}
     <h2 class="closing__names reveal" data-delay="2">
       <span data-bind="brideNickname">Ria</span>
       <span>&amp;</span>
-      <span data-bind="groomNickname">Ardy</span>
+      <span data-bind="groomNickname">Ardyana</span>
     </h2>
     <p class="closing__family reveal" data-delay="3" data-bind-html="familiesLine"></p>
     <svg class="orn orn--divider reveal" data-delay="3" aria-hidden="true" style="margin-top:26px"><use href="#orn-divider"/></svg>
   </section>
 
   <footer class="footer">
-    Made with love for <strong><span data-bind="brideNickname">Ria</span> &amp; <span data-bind="groomNickname">Ardy</span></strong>
+    Made with love for <strong><span data-bind="brideNickname">Ria</span> &amp; <span data-bind="groomNickname">Ardyana</span></strong>
   </footer>
 </main>
 
@@ -752,7 +752,7 @@ const weddingData = {
 
   /* --- Mempelai pria --- */
   groomName:      "Wayan Ardyana Prastara",
-  groomNickname:  "Ardy",
+  groomNickname:  "Ardyana",
   groomParents:   "Putra dari Bapak dr. I Wayan Sudiana, M.Kes<br>dan Ibu Ir. Ni Luh Putu Santi Armaheni",
   groomPhoto:     "groom.jpg",
 
@@ -783,21 +783,21 @@ const weddingData = {
   rsvpEmbedUrl:   "",
 
   /* --- Media --- */
-  musicFile:      "assets/music.mp3",
-  heroPhoto:      "assets/img/hero.jpg",
+  musicFile:      "music.mp3",
+  heroPhoto:      "hero.jpg",
   /* GANTI 6 FOTO GALERI DI SINI (letakkan file di assets/img/) */
   gallery: [
-    { src: "assets/img/gallery-1.jpg", alt: "Momen prewedding 1" },
-    { src: "assets/img/gallery-2.jpg", alt: "Momen prewedding 2" },
-    { src: "assets/img/gallery-3.jpg", alt: "Momen prewedding 3" },
-    { src: "assets/img/gallery-4.jpg", alt: "Momen prewedding 4" },
-    { src: "assets/img/gallery-5.jpg", alt: "Momen prewedding 5" },
-    { src: "assets/img/gallery-6.jpg", alt: "Momen prewedding 6" }
+    { src: "gallery-1.jpg", alt: "Momen prewedding 1" },
+    { src: "gallery-2.jpg", alt: "Momen prewedding 2" },
+    { src: "gallery-3.jpg", alt: "Momen prewedding 3" },
+    { src: "gallery-4.jpg", alt: "Momen prewedding 4" },
+    { src: "gallery-5.jpg", alt: "Momen prewedding 5" },
+    { src: "gallery-6.jpg", alt: "Momen prewedding 6" }
   ],
 
   /* --- Lain-lain --- */
   guestFallback:  "Bapak/Ibu/Saudara/i",
-  familiesLine:   "Keluarga Besar Bapak Alm. I Wayan Eka Sunantara &amp; Ibu Nur Lela<br>Keluarga Besar Bapak [NAMA AYAH] &amp; Ibu [NAMA IBU]"
+  familiesLine:   "Keluarga Besar Bapak Alm. I Wayan Eka Sunantara &amp; Ibu Nur Lela<br>Keluarga Besar Bapak dr. I Wayan Sudiana, M.Kes &amp; Ibu Ir. Ni Luh Putu Santi Armaheni"
 };
 
 /* ==================================================================
