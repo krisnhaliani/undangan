@@ -469,6 +469,83 @@ section > *{position:relative;z-index:1;}
 }
 
 /* ============================================================
+   UCAPAN & DOA
+   ============================================================ */
+
+.wishes-section{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(251,247,240,.96),
+      rgba(244,235,221,.96)
+    );
+}
+
+.wishes-list{
+  margin:32px auto 0;
+  max-width:420px;
+  display:grid;
+  gap:14px;
+}
+
+.wish-card{
+  position:relative;
+  padding:24px 22px;
+  text-align:left;
+  background:rgba(251,247,240,.85);
+  border:1px solid rgba(198,161,91,.35);
+  box-shadow:0 12px 28px rgba(107,74,47,.08);
+}
+
+.wish-card::before{
+  content:"“";
+  position:absolute;
+  top:5px;
+  right:15px;
+  font-family:var(--font-display);
+  font-size:54px;
+  color:rgba(198,161,91,.18);
+}
+
+.wish-card__name{
+  font-family:var(--font-title);
+  font-size:15px;
+  color:var(--green);
+  letter-spacing:.04em;
+}
+
+.wish-card__message{
+  margin-top:9px;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.wish-card__date{
+  margin-top:12px;
+  font-size:9.5px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
+.wishes-loading,
+.wishes-empty{
+  text-align:center;
+  font-family:var(--font-display);
+  font-style:italic;
+  color:var(--ink-soft);
+}
+
+#showMoreWishes{
+  margin-top:24px;
+}
+     
+/* ============================================================
    15. PENUTUP & FOOTER
    ============================================================ */
 .closing{
@@ -1185,122 +1262,6 @@ function bindGuest() {
       wrap.hidden = false;
     }
   }
-
-/* ============================================================
-   UCAPAN & DOA
-   ============================================================ */
-
-.wishes-section{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(251,247,240,.96),
-      rgba(244,235,221,.96)
-    );
-}
-
-.wishes-list{
-  margin:32px auto 0;
-  max-width:420px;
-
-  display:grid;
-  gap:14px;
-}
-
-.wish-card{
-  position:relative;
-
-  padding:24px 22px;
-
-  text-align:left;
-
-  background:
-    rgba(251,247,240,.85);
-
-  border:
-    1px solid rgba(198,161,91,.35);
-
-  box-shadow:
-    0 12px 28px rgba(107,74,47,.08);
-}
-
-.wish-card::before{
-  content:"“";
-
-  position:absolute;
-
-  top:5px;
-  right:15px;
-
-  font-family:
-    var(--font-display);
-
-  font-size:54px;
-
-  color:
-    rgba(198,161,91,.18);
-}
-
-.wish-card__name{
-  font-family:
-    var(--font-title);
-
-  font-size:15px;
-
-  color:
-    var(--green);
-
-  letter-spacing:.04em;
-}
-
-.wish-card__message{
-  margin-top:9px;
-
-  font-family:
-    var(--font-display);
-
-  font-style:italic;
-
-  font-size:16px;
-
-  line-height:1.7;
-
-  color:
-    var(--ink-soft);
-
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-}
-
-.wish-card__date{
-  margin-top:12px;
-
-  font-size:9.5px;
-
-  letter-spacing:.15em;
-
-  text-transform:uppercase;
-
-  color:
-    var(--gold);
-}
-
-.wishes-loading,
-.wishes-empty{
-  text-align:center;
-
-  font-family:
-    var(--font-display);
-
-  font-style:italic;
-
-  color:
-    var(--ink-soft);
-}
-
-#showMoreWishes{
-  margin-top:24px;
-}
      
   /* ================================================================
      F. GALERI + LIGHTBOX
