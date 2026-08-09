@@ -24,7 +24,7 @@ href="https://krishnaliani.github.io/undangan/" />
 content="Pawiwahan Ardyana & Ria — 1 Oktober 2026" />
 
 <meta property="og:description"
-content="Dengan penuh sukacita, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada Pawiwahan Ardyana & Ria." />
+content="Dengan penuh sukacita, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada upacara Pawiwahan Ardyana & Ria." />
 
 <meta property="og:url"
 content="https://krishnaliani.github.io/undangan/" />
@@ -768,7 +768,7 @@ section > *{position:relative;z-index:1;}
         </div>
         <div class="info__row">
           <span class="info__label">Waktu</span>
-          <span class="info__value" data-bind="eventTime">18.00 – 20.00 WITA</span>
+          <span class="info__value" data-bind="eventTime">19.00 – 21.00 WITA</span>
         </div>
         <div class="info__row">
           <span class="info__label">Tempat</span>
@@ -833,7 +833,7 @@ section > *{position:relative;z-index:1;}
 
     <p class="lead reveal" data-delay="2">
       Dengan hormat, mohon kesediaan Bapak/Ibu/Saudara/i untuk
-      mengonfirmasi kehadiran pada Pawiwahan kami.
+      mengkonfirmasi kehadiran pada upacara Pawiwahan kami.
     </p>
 
     <form id="customRsvpForm" class="rsvp-form reveal" data-delay="2">
@@ -1041,18 +1041,26 @@ const weddingData = {
   groomNickname:  "Ardyana",
   groomParents:   "Putra dari Bapak dr. I Wayan Sudiana, M.Kes<br>dan Ibu Ir. Ni Luh Putu Santi Armaheni",
   groomPhoto:     "groom.jpg",
+     
+/* --- Acara default: Resepsi Pawiwahan --- */
+eventName:      "Resepsi Pawiwahan",
 
-  /* --- Acara --- */
-  eventName:      "Resepsi Pawiwahan",
-  eventDate:      "2026-10-01T18:00:00+08:00",  // ISO + offset WITA (+08:00)
-  eventEndDate:   "2026-10-01T20:00:00+08:00",
-  eventDateText:  "Kamis, 1 Oktober 2026",
-  eventTime:      "18.00 – 20.00 WITA",
-  venue:          "Griya Taksu",
-  address:        "Jl. Ir. Sutami, Kemenuh, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
-  mapsUrl:        "https://www.google.com/maps/dir/?api=1&destination=Griya%20Taksu%2C%20Jl.%20Ir.%20Sutami%2C%20Kemenuh%2C%20Sukawati%2C%20Gianyar%2C%20Bali%2080582",
-  timezone:       "Asia/Makassar",   // WITA
-  timezoneLabel:  "WITA",
+eventDate:      "2026-10-01T19:00:00+08:00",
+eventEndDate:   "2026-10-01T21:00:00+08:00",
+
+eventDateText:  "Kamis, 1 Oktober 2026",
+eventTime:      "19.00 – 21.00 WITA",
+
+venue:          "Griya Taksu",
+
+address:
+  "Jl. Ir. Sutami, Kemenuh, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
+
+mapsUrl:
+  "https://www.google.com/maps/dir/?api=1&destination=Griya%20Taksu%2C%20Jl.%20Ir.%20Sutami%2C%20Kemenuh%2C%20Sukawati%2C%20Gianyar%2C%20Bali%2080582",
+
+timezone:       "Asia/Makassar",
+timezoneLabel:  "WITA",
 
   /* --- Formulir (Google Form) --- */
      
@@ -1080,6 +1088,88 @@ rsvpEmbedUrl:   "",
   guestFallback:  "Bapak/Ibu/Saudara/i",
   familiesLine:   "Keluarga Besar Bapak Alm. I Wayan Eka Sunantara &amp; Ibu Nur Lela<br>Keluarga Besar Bapak dr. I Wayan Sudiana, M.Kes &amp; Ibu Ir. Ni Luh Putu Santi Armaheni"
 };
+
+     const eventGroups = {
+
+  memadik: {
+    eventName: "Acara Memadik",
+    eventDate: "2026-10-01T10:00:00+08:00",
+    eventEndDate: "2026-10-01T11:30:00+08:00",
+    eventDateText: "Kamis, 1 Oktober 2026",
+    eventTime: "10.00 – 11.30 WITA",
+
+    venue:
+      "Kediaman Keluarga Bapak Alm. I Wayan Eka Sunantara dan Ibu Nur Lela",
+
+    address:
+      "Jl. Pulau Buru III No. 3, Banjar Pekambingan, Kec. Denpasar Barat, Kota Denpasar, Bali",
+
+    mapsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=Jl.%20Pulau%20Buru%20III%20No.%203%2C%20Banjar%20Pekambingan%2C%20Denpasar%20Barat%2C%20Bali"
+  },
+
+  resepsi: {
+    eventName: "Resepsi Pawiwahan",
+    eventDate: "2026-10-01T19:00:00+08:00",
+    eventEndDate: "2026-10-01T21:00:00+08:00",
+    eventDateText: "Kamis, 1 Oktober 2026",
+    eventTime: "19.00 – 21.00 WITA",
+
+    venue: "Griya Taksu",
+
+    address:
+      "Jl. Ir. Sutami, Kemenuh, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
+
+    mapsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=Griya%20Taksu%2C%20Jl.%20Ir.%20Sutami%2C%20Kemenuh%2C%20Sukawati%2C%20Gianyar%2C%20Bali%2080582"
+  }
+
+};
+
+function applyEventGroup() {
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const eventCode =
+    params.get("acara") || "resepsi";
+
+
+  const selectedEvent =
+    eventGroups[eventCode];
+
+
+  if (!selectedEvent) {
+    return;
+  }
+
+
+  weddingData.eventName =
+    selectedEvent.eventName;
+
+  weddingData.eventDate =
+    selectedEvent.eventDate;
+
+  weddingData.eventEndDate =
+    selectedEvent.eventEndDate;
+
+  weddingData.eventDateText =
+    selectedEvent.eventDateText;
+
+  weddingData.eventTime =
+    selectedEvent.eventTime;
+
+  weddingData.venue =
+    selectedEvent.venue;
+
+  weddingData.address =
+    selectedEvent.address;
+
+  weddingData.mapsUrl =
+    selectedEvent.mapsUrl;
+}
 
 /* ==================================================================
    ==  B. UTILITAS  =================================================
@@ -1835,6 +1925,9 @@ function wireWishes() {
 }
      
   document.addEventListener("DOMContentLoaded", () => {
+
+    applyEventGroup();
+       
     bindData();
     bindPhotos();
     bindGuest();
