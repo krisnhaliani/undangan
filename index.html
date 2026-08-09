@@ -832,7 +832,68 @@ section > *{position:relative;z-index:1;}
   </div>
 </section>
 
-  <!-- ---------- 8. PENUTUP ---------- -->
+<!-- ---------- 8. UCAPAN & DOA ---------- -->
+<section class="wishes-section" id="wishes" aria-labelledby="wishes-title">
+
+  <div class="center stack">
+
+    <p class="eyebrow reveal">
+      Wishes
+    </p>
+
+    <h2
+      class="section-title reveal"
+      data-delay="1"
+      id="wishes-title"
+    >
+      Ucapan &amp; Doa
+    </h2>
+
+    <svg
+      class="orn orn--divider reveal"
+      data-delay="1"
+      aria-hidden="true"
+    >
+      <use href="#orn-divider"/>
+    </svg>
+
+    <p class="lead reveal" data-delay="2">
+      Doa dan restu dari Bapak/Ibu/Saudara/i
+      merupakan kebahagiaan bagi kami.
+    </p>
+
+  </div>
+
+
+  <div
+    id="wishesList"
+    class="wishes-list reveal"
+    data-delay="2"
+  >
+
+    <p class="wishes-loading">
+      Memuat ucapan...
+    </p>
+
+  </div>
+
+
+  <div class="center">
+
+    <button
+      id="showMoreWishes"
+      class="btn btn--ghost"
+      type="button"
+      hidden
+    >
+      Lihat Ucapan Lainnya
+    </button>
+
+  </div>
+
+</section>
+     
+  <!-- ---------- 9. PENUTUP ---------- -->
   <section class="closing" aria-label="Penutup">
     <svg class="orn orn--divider reveal" aria-hidden="true"><use href="#orn-divider"/></svg>
     <p class="closing__text reveal" data-delay="1">
@@ -1125,6 +1186,122 @@ function bindGuest() {
     }
   }
 
+/* ============================================================
+   UCAPAN & DOA
+   ============================================================ */
+
+.wishes-section{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(251,247,240,.96),
+      rgba(244,235,221,.96)
+    );
+}
+
+.wishes-list{
+  margin:32px auto 0;
+  max-width:420px;
+
+  display:grid;
+  gap:14px;
+}
+
+.wish-card{
+  position:relative;
+
+  padding:24px 22px;
+
+  text-align:left;
+
+  background:
+    rgba(251,247,240,.85);
+
+  border:
+    1px solid rgba(198,161,91,.35);
+
+  box-shadow:
+    0 12px 28px rgba(107,74,47,.08);
+}
+
+.wish-card::before{
+  content:"“";
+
+  position:absolute;
+
+  top:5px;
+  right:15px;
+
+  font-family:
+    var(--font-display);
+
+  font-size:54px;
+
+  color:
+    rgba(198,161,91,.18);
+}
+
+.wish-card__name{
+  font-family:
+    var(--font-title);
+
+  font-size:15px;
+
+  color:
+    var(--green);
+
+  letter-spacing:.04em;
+}
+
+.wish-card__message{
+  margin-top:9px;
+
+  font-family:
+    var(--font-display);
+
+  font-style:italic;
+
+  font-size:16px;
+
+  line-height:1.7;
+
+  color:
+    var(--ink-soft);
+
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.wish-card__date{
+  margin-top:12px;
+
+  font-size:9.5px;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+
+  color:
+    var(--gold);
+}
+
+.wishes-loading,
+.wishes-empty{
+  text-align:center;
+
+  font-family:
+    var(--font-display);
+
+  font-style:italic;
+
+  color:
+    var(--ink-soft);
+}
+
+#showMoreWishes{
+  margin-top:24px;
+}
+     
   /* ================================================================
      F. GALERI + LIGHTBOX
      ================================================================ */
@@ -1406,6 +1583,48 @@ function wireCustomRsvp() {
 
       status.classList.add("is-visible");
 
+if (data.ucapan) {
+
+  const list =
+    document.getElementById(
+      "wishesList"
+    );
+
+
+  const newWish = {
+
+    nama: data.nama,
+
+    ucapan: data.ucapan,
+
+    timestamp:
+      new Date().toISOString()
+
+  };
+
+
+  if (list) {
+
+    const empty =
+      list.querySelector(
+        ".wishes-empty"
+      );
+
+    if (empty) {
+      empty.remove();
+    }
+
+
+    list.prepend(
+      createWishCard(
+        newWish
+      )
+    );
+
+  }
+
+}
+         
       form.reset();
       guestField.style.display = "block";
 
@@ -1424,19 +1643,253 @@ function wireCustomRsvp() {
     }
   });
 }
+
+const WISHES_API =
+  "https://script.google.com/macros/s/AKfycbwEqAidNFmjMB5s6lK5Qf2tMja9L-sDdaCNIKZe0zpWVt9GN51oNTzJbvfNETf_2bBDnw/exec";
+
+
+let allWishes = [];
+let wishesShown = 0;
+
+const WISHES_PER_PAGE = 4;
+
+
+function formatWishDate(value) {
+
+  if (!value) return "";
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return "";
+  }
+
+  return new Intl.DateTimeFormat(
+    "id-ID",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "Asia/Makassar"
+    }
+  ).format(date);
+
+}
+
+
+function createWishCard(item) {
+
+  const card =
+    document.createElement("article");
+
+  card.className =
+    "wish-card";
+
+
+  const name =
+    document.createElement("h3");
+
+  name.className =
+    "wish-card__name";
+
+  name.textContent =
+    item.nama || "Tamu Undangan";
+
+
+  const message =
+    document.createElement("p");
+
+  message.className =
+    "wish-card__message";
+
+  message.textContent =
+    item.ucapan || "";
+
+
+  const date =
+    document.createElement("p");
+
+  date.className =
+    "wish-card__date";
+
+  date.textContent =
+    formatWishDate(item.timestamp);
+
+
+  card.appendChild(name);
+
+  card.appendChild(message);
+
+
+  if (date.textContent) {
+
+    card.appendChild(date);
+
+  }
+
+
+  return card;
+}
+
+
+function renderMoreWishes() {
+
+  const list =
+    document.getElementById(
+      "wishesList"
+    );
+
+  const button =
+    document.getElementById(
+      "showMoreWishes"
+    );
+
+
+  const end =
+    Math.min(
+      wishesShown + WISHES_PER_PAGE,
+      allWishes.length
+    );
+
+
+  for (
+    let i = wishesShown;
+    i < end;
+    i++
+  ) {
+
+    list.appendChild(
+      createWishCard(
+        allWishes[i]
+      )
+    );
+
+  }
+
+
+  wishesShown = end;
+
+
+  button.hidden =
+    wishesShown >=
+    allWishes.length;
+}
+
+
+async function loadWishes() {
+
+  const list =
+    document.getElementById(
+      "wishesList"
+    );
+
+  const button =
+    document.getElementById(
+      "showMoreWishes"
+    );
+
+
+  if (!list) return;
+
+
+  try {
+
+    const response =
+      await fetch(WISHES_API);
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Gagal mengambil ucapan"
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    allWishes =
+      Array.isArray(data)
+        ? data
+        : [];
+
+
+    list.innerHTML = "";
+
+    wishesShown = 0;
+
+
+    if (!allWishes.length) {
+
+      list.innerHTML =
+        '<p class="wishes-empty">' +
+        'Belum ada ucapan.' +
+        '</p>';
+
+      button.hidden = true;
+
+      return;
+    }
+
+
+    renderMoreWishes();
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    list.innerHTML =
+      '<p class="wishes-empty">' +
+      'Ucapan belum dapat dimuat.' +
+      '</p>';
+
+  }
+
+}
+
+
+function wireWishes() {
+
+  const button =
+    document.getElementById(
+      "showMoreWishes"
+    );
+
+
+  if (button) {
+
+    button.addEventListener(
+      "click",
+      renderMoreWishes
+    );
+
+  }
+
+
+  loadWishes();
+}
      
   document.addEventListener("DOMContentLoaded", () => {
     bindData();
     bindPhotos();
     bindGuest();
     bindButtons();
+       
     wireCustomRsvp();
+    wireWishes();
+       
     buildGallery();
     wireLightbox();
     startCountdown();
     wireMusic();
     wireReveal();
+       
     const floating = wireScrollUI();
+       
     wireOpen(floating);
   });
 })();
