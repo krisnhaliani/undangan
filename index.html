@@ -808,6 +808,52 @@ section > *{position:relative;z-index:1;}
     </div>
   </section>
 
+     <div class="card reveal" id="groomGatheringCard" hidden>
+  <svg
+    class="corner corner--tl"
+    style="width:70px;height:70px;top:10px;left:10px"
+    aria-hidden="true"
+  >
+    <use href="#orn-corner"/>
+  </svg>
+
+  <svg
+    class="corner corner--br"
+    style="width:70px;height:70px;bottom:10px;right:10px"
+    aria-hidden="true"
+  >
+    <use href="#orn-corner"/>
+  </svg>
+
+  <p class="card__type">Titik Kumpul Keluarga</p>
+
+  <div class="info">
+    <div class="info__row">
+      <span class="info__label">Waktu Berkumpul</span>
+      <span class="info__value">07.30 WITA</span>
+    </div>
+
+    <div class="info__row">
+      <span class="info__label">Tempat</span>
+      <span class="info__value">
+        Kediaman Keluarga Mempelai Pria
+        <small>Jl. Noja Sari No. 5, Denpasar</small>
+      </span>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <a
+      class="btn btn--solid"
+      href="https://www.google.com/maps/dir/?api=1&destination=Jl.%20Noja%20Sari%20No.%205%2C%20Denpasar%2C%20Bali"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Petunjuk Arah
+    </a>
+  </div>
+</div>
+
   <!-- ---------- 5. COUNTDOWN ---------- -->
   <section class="countdown" aria-labelledby="countdown-title">
     <p class="eyebrow reveal">Menuju Hari Bahagia</p>
@@ -1105,17 +1151,45 @@ rsvpEmbedUrl:   "",
   familiesLine:   "Keluarga Bapak dr. I Wayan Sudiana, M.Kes &amp; Ibu Ir. Ni Luh Putu Santi Armaheni<br>Mendiang Bapak I Wayan Eka Sunantara &amp; Ibu Nur Lela"
 };
 
-     const eventGroups = {
+const eventGroups = {
 
+  /* =========================================================
+     1. MEMADIK — KELUARGA MEMPELAI PRIA
+     ========================================================= */
+"memadik-keluarga": {
+  eventName: "Acara Memadik",
+
+  eventDate: "2026-10-01T08:30:00+08:00",
+  eventEndDate: "2026-10-01T11:30:00+08:00",
+
+  eventDateText: "Kamis, 1 Oktober 2026",
+  eventTime: "08.30 – 11.30 WITA",
+
+  venue:
+    "Kediaman Keluarga Mendiang Bapak I Wayan Eka Sunantara dan Ibu Nur Lela",
+
+  address:
+    "Jl. Pulau Buru III No. 3, Banjar Pekambingan, Kec. Denpasar Barat, Kota Denpasar, Bali",
+
+  mapsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=Jl.%20Pulau%20Buru%20III%20No.%203%2C%20Banjar%20Pekambingan%2C%20Denpasar%20Barat%2C%20Bali"
+},
+
+
+  /* =========================================================
+     2. MEMADIK — UNDANGAN UMUM
+     ========================================================= */
   memadik: {
     eventName: "Acara Memadik",
-    eventDate: "2026-10-01T10:00:00+08:00",
+
+    eventDate: "2026-10-01T08:30:00+08:00",
     eventEndDate: "2026-10-01T11:30:00+08:00",
+
     eventDateText: "Kamis, 1 Oktober 2026",
-    eventTime: "08.30 – 11.00 WITA",
+    eventTime: "08.30 – 11.30 WITA",
 
     venue:
-      "Kediaman Keluarga Mendiang Bapak I Wayan Eka Sunantara",
+      "Kediaman Keluarga Mendiang Bapak I Wayan Eka Sunantara dan Ibu Nur Lela",
 
     address:
       "Jl. Pulau Buru III No. 3, Banjar Pekambingan, Kec. Denpasar Barat, Kota Denpasar, Bali",
@@ -1124,10 +1198,38 @@ rsvpEmbedUrl:   "",
       "https://www.google.com/maps/dir/?api=1&destination=Jl.%20Pulau%20Buru%20III%20No.%203%2C%20Banjar%20Pekambingan%2C%20Denpasar%20Barat%2C%20Bali"
   },
 
-  resepsi: {
+
+  /* =========================================================
+     3. PAWIWAHAN — UNDANGAN KELUARGA
+     ========================================================= */
+  "pawiwahan-keluarga": {
     eventName: "Resepsi Pawiwahan",
+
+    eventDate: "2026-10-01T16:00:00+08:00",
+    eventEndDate: "2026-10-01T19:00:00+08:00",
+
+    eventDateText: "Kamis, 1 Oktober 2026",
+    eventTime: "16.00 – 19.00 WITA",
+
+    venue: "Griya Taksu",
+
+    address:
+      "Jl. Ir. Sutami, Kemenuh, Kec. Sukawati, Kabupaten Gianyar, Bali 80582",
+
+    mapsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=Griya%20Taksu%2C%20Jl.%20Ir.%20Sutami%2C%20Kemenuh%2C%20Sukawati%2C%20Gianyar%2C%20Bali%2080582"
+  },
+
+
+  /* =========================================================
+     4. PAWIWAHAN — UNDANGAN UMUM
+     ========================================================= */
+  pawiwahan: {
+    eventName: "Resepsi Pawiwahan",
+
     eventDate: "2026-10-01T19:00:00+08:00",
     eventEndDate: "2026-10-01T21:00:00+08:00",
+
     eventDateText: "Kamis, 1 Oktober 2026",
     eventTime: "19.00 – 21.00 WITA",
 
@@ -1149,10 +1251,17 @@ function applyEventGroup() {
       window.location.search
     );
 
-  const eventCode =
-    params.get("acara") || "resepsi";
+const eventCode =
+  params.get("acara") || "pawiwahan";
 
+const groomGatheringCard =
+  document.getElementById("groomGatheringCard");
 
+if (groomGatheringCard) {
+  groomGatheringCard.hidden =
+    eventCode !== "memadik-keluarga";
+}
+     
   const selectedEvent =
     eventGroups[eventCode];
 
