@@ -1868,8 +1868,8 @@ function createWishCard(item) {
   name.className =
     "wish-card__name";
 
-  name.textContent =
-    item.nama || "Tamu Undangan";
+name.textContent =
+  item.nama || item.name || "Tamu Undangan";
 
 
   const message =
@@ -1955,48 +1955,39 @@ function renderMoreWishes() {
 async function loadWishes() {
 
   const list =
-    document.getElementById(
-      "wishesList"
-    );
+    document.getElementById("wishesList");
 
   const button =
-    document.getElementById(
-      "showMoreWishes"
-    );
-
+    document.getElementById("showMoreWishes");
 
   if (!list) return;
 
-
   try {
 
-    const response =
-      await fetch(WISHES_API);
-
+    const response = await fetch(
+      WISHES_API + "?t=" + Date.now(),
+      {
+        method: "GET",
+        cache: "no-store"
+      }
+    );
 
     if (!response.ok) {
-
       throw new Error(
-        "Gagal mengambil ucapan"
+        "HTTP error " + response.status
       );
-
     }
-
 
     const data =
       await response.json();
-
 
     allWishes =
       Array.isArray(data)
         ? data
         : [];
 
-
     list.innerHTML = "";
-
     wishesShown = 0;
-
 
     if (!allWishes.length) {
 
@@ -2005,10 +1996,32 @@ async function loadWishes() {
         'Belum ada ucapan.' +
         '</p>';
 
-      button.hidden = true;
+      if (button) {
+        button.hidden = true;
+      }
 
       return;
     }
+
+    renderMoreWishes();
+
+  } catch (error) {
+
+    console.error(
+      "Gagal mengambil ucapan:",
+      error
+    );
+
+    list.innerHTML =
+      '<p class="wishes-empty">' +
+      'Ucapan belum dapat dimuat.' +
+      '</p>';
+
+    if (button) {
+      button.hidden = true;
+    }
+  }
+}
 
 
     renderMoreWishes();
